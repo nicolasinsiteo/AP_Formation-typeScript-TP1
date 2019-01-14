@@ -148,3 +148,5 @@ let brian = new eleve("Brian", 16, adress,briansNotes)
 
 brian.eleve_info();
 brian.notes();
+
+//***************************************************
