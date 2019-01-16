@@ -8,53 +8,54 @@
  export class eleve 
  {
      
-     prenom: string;
-     age: number;
-     adresse: object;
-     note : Array<number>;
-     lang : Array<string>
+     _prenom: string;
+     _age: number;
+     _adresse: object;
+     _note : Array<number>;
+     _lang : Array<string>;
+     
  
      //***** DEFINE CONSTRUCTOR **********************************
      //**************************************************** */
      constructor(name:string, age:number, adress:object, note:Array<number>,lang:Array<string> ) 
      {
-         this.prenom = name;
-         this.age = age;
-         this.adresse = adress;
-         this.note = note;
-         this.lang = lang;
+         this._prenom = name;
+         this._age = age;
+         this._adresse = adress;
+         this._note = note;
+         this._lang = lang;
      }
  
      // DEFINE GETTER / SETTER
      //****************************** */
-     get propertyName(){
-         return this.prenom;
+     get prenom(){
+         return this._prenom;
      }
-     set propertyName(newName:string){
-         this.prenom = newName;
-     }
-     //****************************** */
-     get propertyAge(){
-         return this.age;
-     }
-     set propertyAge(newAge:number){
-         this.age = newAge;
+     set prenom(newName:string){
+         this._prenom = newName;
      }
      //****************************** */
-     get propertyAdresse():{}{
-         return this.adresse;
+     get age(){
+         return this._age;
      }
-     set propertyAdresse(newAdresse:{}){
-         this.adresse = newAdresse;
+     set age(newAge:number){
+         this._age = newAge;
      }
      //****************************** */
-     get propertyNote():any{
+     get adresse():{}{
+         return this._adresse;
+     }
+     set adresse(newAdresse:{}){
+         this._adresse = newAdresse;
+     }
+     //****************************** */
+     get note():any{
          
-         for(var i = 0; i<this.note.length;i++)
-         return this.note[i];
+         for(var i = 0; i<this._note.length;i++)
+         return this._note[i];
      }
-     set propertyNote(newNote:any){
-         this.note.push(newNote);
+     set note(newNote:any){
+         this._note.push(newNote);
      }
      //*************END GETTER / SETTER***************** */
  
@@ -63,11 +64,11 @@
      {
          console.log
          (
-             "- "+this.prenom+"\n"+
-             "- "+this.age+"\n"+
+             "- "+this._prenom+"\n"+
+             "- "+this._age+"\n"+
              "- " 
          )
-         console.log(this.adresse);
+         console.log(this._adresse);
          this.langu_list();
      }
      //****************END METHOD ******* */
@@ -78,30 +79,30 @@
          
          var totalScore = 0;
          
-         for(var i=0; i<this.note.length;i++)
+         for(var i=0; i<this._note.length;i++)
          {
-            totalScore +=  this.note[i];
-            return this.note[i];
+            totalScore +=  this._note[i];
+            return this._note[i];
          }
-         var averageScore = totalScore / this.note.length;
+         var averageScore = totalScore / this._note.length;
          return averageScore;
      }
      // ************ METHOD TO DISPLAY SCORE & AVERAGE SCORE
      notes()
      {
          console.log("here is the list of the student's grades")
-         for(var i=0; i<this.note.length;i++)
+         for(var i=0; i<this._note.length;i++)
          {
-             console.log(this.note[i]);
+             console.log(this._note[i]);
          }
          console.log("The average Score of this student is "+this.calc_moyenne()+".");
      }
      langu_list()
      {
          console.log("here is the list of the student's learned Languages")
-         for(var i=0; i<this.lang.length;i++)
+         for(var i=0; i<this._lang.length;i++)
          {
-             console.log(this.lang[i]);
+             console.log(this._lang[i]);
          }
          
      }
