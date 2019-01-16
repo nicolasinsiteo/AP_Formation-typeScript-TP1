@@ -1,3 +1,21 @@
+namespace NS_Lang 
+{
+    export class languages
+    {
+        export list()
+        {
+            var languageLearned : Array<string>=["EN","FR","DE","RU"];
+            return languageLearned;
+        }
+    }
+
+
+}
+
+
+
+
+
 var nombre_a : number = 1;
 var nombre_b : number = 2 ;
 
@@ -47,6 +65,8 @@ var adress = {
  //****************************************************************
  
  // DEFINE CLASS PROPERTIES******************
+ 
+ NS_Lang.languages.
  class eleve 
 {
     prenom: string;
@@ -104,8 +124,9 @@ var adress = {
         (
             "- "+this.prenom+"\n"+
             "- "+this.age+"\n"+
-            "- " +this.adresse
+            "- " 
         )
+        console.log(this.adresse);
     }
     //****************END METHOD ******* */
 
@@ -149,4 +170,36 @@ let brian = new eleve("Brian", 16, adress,briansNotes)
 brian.eleve_info();
 brian.notes();
 
-//***************************************************
+
+//*******************INTERFACE ADRESS */****************** */
+
+
+interface AdressInterf {
+    rue: string;
+    cp: any;
+    ville: string;
+    appartement?:string;
+}
+
+
+function SetAdress(config: AdressInterf): {street: string; code: number; city:string; appt:string} 
+{
+    let newAdress = {street:config.rue, code:config.cp ,city:config.ville,appt:""};
+    
+    if (config.appartement) {
+        newAdress.appt = config.appartement;
+    }
+
+    return newAdress;
+}
+
+let joshsAdress = SetAdress({rue: "rue de la gare", cp:31450, ville:"toulouse"});
+var joshsNotes : Array<number> = [12,16,17,17,11,8,15,16];
+//********************INTERFACE ADRESS END ************** */
+
+
+let joshStudent = new eleve("Josh",23,joshsAdress,joshsNotes);
+
+joshStudent.eleve_info();
+joshStudent.notes();
+
